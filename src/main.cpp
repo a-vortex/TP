@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include "../include/Mecanismo.h"
+#include "../include/QuickSort.h"
+#include "../include/MergeSort.h"
+#include "../include/InsertionSort.h"
 
 //==========Estruturas de Dados==========
 
@@ -20,16 +23,32 @@ int main(int argc, char** argv) {
     std::string nomeArquivo = argv[1];
 
     GerenciadorDeDados gerenciador;
-    modelo* arrayModelos = nullptr;
+    modelo* arrayModelosOriginal = nullptr;
     size_t tamanho = 0;
+    std::string cabecalho;
+    size_t numAtributos = 0;
 
-    if (!gerenciador.carregarDadosDoArquivo(nomeArquivo, arrayModelos, tamanho)) {
+    // Carrega os dados do arquivo
+    if (!gerenciador.carregarDadosDoArquivo(nomeArquivo, arrayModelosOriginal, tamanho, cabecalho, numAtributos)) {
+        std::cerr << "Erro ao abrir o arquivo: " << nomeArquivo << std::endl;
         return 1;
     }
 
-    gerenciador.exibirDados(arrayModelos, tamanho);
+    // Ordenar e exibir usando diferentes algoritmos e chaves
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 0, "QuickSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 1, "QuickSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 2, "QuickSort", cabecalho, numAtributos);
 
-    gerenciador.liberarArrayModelo(arrayModelos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 0, "MergeSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 1, "MergeSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 2, "MergeSort", cabecalho, numAtributos);
+
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 0, "InsertionSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 1, "InsertionSort", cabecalho, numAtributos);
+    gerenciador.ordenarEExibir(arrayModelosOriginal, tamanho, 2, "InsertionSort", cabecalho, numAtributos);
+
+    // Libera a memória do array original
+    gerenciador.liberarArrayModelo(arrayModelosOriginal);
 
     return 0;
 }
