@@ -1,5 +1,5 @@
-#ifndef INSERTION_SORT_H
-#define INSERTION_SORT_H
+#ifndef INSERTIONSORT_H
+#define INSERTIONSORT_H
 
 #include "Mecanismo.h"
 
@@ -12,4 +12,4 @@ private:
     static std::string getKey(const modelo &m, int keyIndex);
 };
 
-#endif // INSERTION_SORT_H
+#endif // INSERTIONSORT_H

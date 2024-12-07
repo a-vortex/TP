@@ -1,5 +1,5 @@
-#ifndef MERGE_SORT_H
-#define MERGE_SORT_H
+#ifndef MERGESORT_H
+#define MERGESORT_H
 
 #include "Mecanismo.h"
 
@@ -14,4 +14,4 @@ private:
     static std::string getKey(const modelo &m, int keyIndex);
 };
 
-#endif // MERGE_SORT_H
+#endif // MERGESORT_H

@@ -1,5 +1,5 @@
-#ifndef QUICK_SORT_H
-#define QUICK_SORT_H
+#ifndef QUICKSORT_H
+#define QUICKSORT_H
 
 #include "Mecanismo.h"
 
@@ -14,4 +14,4 @@ private:
     static std::string getKey(const modelo &m, int keyIndex);
 };
 
-#endif // QUICK_SORT_H
+#endif // QUICKSORT_H

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <chrono>
 
 GerenciadorDeDados::GerenciadorDeDados() {}
 
@@ -62,13 +63,16 @@ void GerenciadorDeDados::exibirDados(const modelo* arrayModelos, size_t tamanho)
 }
 
 // Libera a memória alocada para o array de modelos
-void GerenciadorDeDados::liberarArrayModelo(modelo* arrayModelos) const{
+void GerenciadorDeDados::liberarArrayModelo(modelo* arrayModelos) const {
     delete[] arrayModelos;
 }
 
 // Ordena e exibe os dados usando o algoritmo especificado
 void GerenciadorDeDados::ordenarEExibir(const modelo* arrayModelosOriginal, size_t tamanho, int keyIndex, const std::string& algoritmo, const std::string& cabecalho, size_t numAtributos) const {
     modelo* arrayModelosOrdenado = nullptr;
+
+    // Medir o tempo de execução do algoritmo de ordenação
+    auto start = std::chrono::high_resolution_clock::now();
 
     // Seleciona o algoritmo de ordenação
     if (algoritmo == "QuickSort") {
@@ -79,8 +83,15 @@ void GerenciadorDeDados::ordenarEExibir(const modelo* arrayModelosOriginal, size
         arrayModelosOrdenado = InsertionSort::sort(arrayModelosOriginal, tamanho, keyIndex);
     }
 
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+
     // Imprime o cabeçalho e os dados ordenados
     std::cout << numAtributos << "\n" << cabecalho << tamanho << "\n";
     exibirDados(arrayModelosOrdenado, tamanho);
+
+    // // Imprime o tempo de execução
+    // std::cout << "Tempo de execução (" << algoritmo << "): " << duration.count() << " segundos\n";
+
     liberarArrayModelo(arrayModelosOrdenado);
 }

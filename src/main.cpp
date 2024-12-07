@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include "../include/Mecanismo.h"
-#include "../include/QuickSort.h"
-#include "../include/MergeSort.h"
-#include "../include/InsertionSort.h"
+#include "../include/Quicksort.h"
+#include "../include/Mergesort.h"
+#include "../include/Insertionsort.h"
 
 //==========Estruturas de Dados==========
 
