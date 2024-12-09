@@ -1,4 +1,4 @@
-#include "InsertionSort.h"
+#include "../include/Insertionsort.h"
 
 modelo* InsertionSort::sort(const modelo* arrayModelos, size_t tamanho, int keyIndex) {
     modelo* sortedArray = new modelo[tamanho];

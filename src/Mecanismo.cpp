@@ -1,7 +1,7 @@
-#include "Mecanismo.h"
-#include "QuickSort.h"
-#include "MergeSort.h"
-#include "InsertionSort.h"
+#include "../include/Mecanismo.h"
+#include "../include/Quicksort.h"
+#include "../include/Mergesort.h"
+#include "../include/Insertionsort.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
